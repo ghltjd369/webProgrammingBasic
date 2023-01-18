@@ -12,12 +12,20 @@ public class Servlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         Calendar c = Calendar.getInstance();
         PrintWriter out = response.getWriter();
-        out.println(Integer.toString(c.get(Calendar.SECOND)));
-        out.println("<a href=\"http://localhost:63342/webProgrammingBasic/makemypage/web/index.html\">홈</a>");
+        out.print("<a href=\"http://localhost:63342/webProgrammingBasic/makemypage/web/index.html\">메인화면</a><br>");
+        out.print("<section style=\"position:relative;top:100px;\">");
+        out.print("<p style=\"font-size:80px;text-align:center\">현재시간 : ");
+        out.print(Integer.toString(c.get(Calendar.YEAR)));
+        out.print("/");
+        out.print(Integer.toString(c.get(Calendar.MONTH) + 1));
+        out.print("/");
+        out.print(Integer.toString(c.get(Calendar.DATE)));
+        out.print(" ");
+        out.print(Integer.toString(c.get(Calendar.HOUR)));
+        out.print(":");
+        out.println(Integer.toString(c.get(Calendar.MINUTE)));
+        out.print("</p>");
+        out.print("</section>");
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }
